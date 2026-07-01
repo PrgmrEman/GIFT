@@ -5,8 +5,12 @@ import giftCard from "./assets/gift-card.png";
 function App() {
   const [showMessage, setShowMessage] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [sent, setSent] = useState(false);
 
 async function handleGiftClick() {
+  // يمنع الضغط مرة ثانية
+  if (loading || sent) return;
+
   setLoading(true);
   setShowMessage(true);
 
@@ -20,8 +24,14 @@ async function handleGiftClick() {
         clickedAt: new Date().toLocaleString("ar-SA"),
       }),
     });
+
+    // بعد الإرسال نقفل الزر نهائيًا
+    setSent(true);
   } catch (error) {
     console.log("تعذر إرسال الإشعار:", error);
+
+    // حتى لو صار خطأ، نقفله عشان ما يكرر الضغط
+    setSent(true);
   }
 
   setLoading(false);
@@ -36,13 +46,17 @@ async function handleGiftClick() {
           className="gift-image"
         />
 
-        <button
-          className="gift-button"
-          onClick={handleGiftClick}
-          disabled={loading}
-        >
-          {loading ? "جاري تجهيز هديتك..." : "احصل على هديتك"}
-        </button>
+<button
+  className="gift-button"
+  onClick={handleGiftClick}
+  disabled={loading || sent}
+>
+  {loading
+    ? "جاري الإرسال..."
+    : sent
+    ? "تم إرسال طلب الهدية ✅"
+    : "احصل على هديتك"}
+</button>
 
         {showMessage && (
           <div className="gift-message">
