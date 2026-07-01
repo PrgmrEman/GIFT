@@ -1,0 +1,99 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  font-family: "Cairo", Arial, sans-serif;
+  direction: rtl;
+}
+
+body {
+  background: #eef7ff;
+}
+
+/* الصفحة كاملة */
+.page {
+  min-height: 100vh;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:
+    radial-gradient(circle at top, #ffffff 0%, #eef7ff 55%, #e4f1ff 100%);
+}
+
+/* صندوق المحتوى */
+.card-container {
+  width: 100%;
+  max-width: 430px;
+  text-align: center;
+}
+
+/* صورة البطاقة */
+.gift-image {
+  width: 100%;
+  display: block;
+  margin: 0 auto 18px;
+  border-radius: 18px;
+  box-shadow: 0 14px 35px rgba(0, 39, 92, 0.18);
+}
+
+/* الزر */
+.gift-button {
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  padding: 16px 20px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #0b3a75, #2478d8);
+  color: white;
+  font-size: 21px;
+  font-weight: 800;
+  font-family: "Cairo", Arial, sans-serif;
+  box-shadow: 0 10px 22px rgba(36, 120, 216, 0.35);
+  transition: 0.2s ease;
+}
+
+.gift-button:active {
+  transform: scale(0.97);
+}
+
+.gift-button:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+/* رسالة الهدية */
+.gift-message {
+  margin: 18px auto 0;
+  padding: 16px 14px;
+  border-radius: 18px;
+  background: #ffffff;
+  color: #0b2b5f;
+  font-size: 19px;
+  font-weight: 800;
+  line-height: 1.8;
+  border: 2px dashed #f2b735;
+  box-shadow: 0 10px 24px rgba(0, 39, 92, 0.12);
+}
+
+/* تحسين للجوالات الصغيرة */
+@media (max-width: 380px) {
+  .page {
+    padding: 12px;
+  }
+
+  .gift-button {
+    font-size: 19px;
+    padding: 15px 16px;
+  }
+
+  .gift-message {
+    font-size: 17px;
+  }
+}
