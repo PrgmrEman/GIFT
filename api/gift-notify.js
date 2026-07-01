@@ -4,10 +4,10 @@ export default async function handler(request, response) {
   }
 
   try {
-    // حطي هنا التوكن الجديد من BotFather
-    const token = "8915411941:AAGNa4b9YCxImFyuEVceJblIPBUfFzcZjOc";
+    // مهم: بما أنك أرسلتي التوكن هنا، جدديه من BotFather ثم ضعي الجديد هنا
+    const token = "8915411941:AAFdBBhLT_SapePmpZZiVLK0pyeHSII5Ozc";
 
-    // حطي هنا رقم chat id
+    // رقم الشات آي دي
     const chatId = "819322320";
 
     const body = request.body || {};
@@ -37,15 +37,23 @@ export default async function handler(request, response) {
       }
     );
 
+    const telegramResult = await telegramResponse.json();
+
     if (!telegramResponse.ok) {
       return response.status(500).json({
         error: "Telegram failed",
+        telegramResult,
       });
     }
 
-    return response.status(200).json({ ok: true });
+    return response.status(200).json({
+      ok: true,
+      telegramResult,
+    });
   } catch (error) {
-    console.error(error);
-    return response.status(500).json({ error: "Notification failed" });
+    return response.status(500).json({
+      error: "Notification failed",
+      details: error.message,
+    });
   }
 }

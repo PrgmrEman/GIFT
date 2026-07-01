@@ -68,6 +68,17 @@ body {
   cursor: not-allowed;
 }
 
+/* رسالة الخطأ لو الإشعار ما وصل */
+.error-message {
+  margin: 14px auto 0;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: #fff3f3;
+  color: #9b1c1c;
+  font-size: 16px;
+  font-weight: 800;
+}
+
 /* رسالة الهدية */
 .gift-message {
   margin: 18px auto 0;
@@ -82,10 +93,32 @@ body {
   box-shadow: 0 10px 24px rgba(0, 39, 92, 0.12);
 }
 
+.gift-message p {
+  margin: 0 0 12px;
+}
+
+.gift-from-title {
+  color: #0b3a75;
+  font-weight: 900;
+}
+
+.gift-from-names {
+  margin-bottom: 0;
+  font-size: 15px;
+  line-height: 2;
+  font-weight: 700;
+  color: #163b66;
+}
+
 /* تحسين للجوالات الصغيرة */
 @media (max-width: 380px) {
   .page {
     padding: 12px;
+  }
+
+  .gift-image {
+    border-radius: 16px;
+    margin-bottom: 16px;
   }
 
   .gift-button {
@@ -95,5 +128,14 @@ body {
 
   .gift-message {
     font-size: 17px;
+    padding: 15px 12px;
+  }
+
+  .gift-from-names {
+    font-size: 14px;
+  }
+
+  .error-message {
+    font-size: 15px;
   }
 }
