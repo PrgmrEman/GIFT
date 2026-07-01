@@ -6,26 +6,26 @@ function App() {
   const [showMessage, setShowMessage] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  async function handleGiftClick() {
-    setLoading(true);
-    setShowMessage(true);
+async function handleGiftClick() {
+  setLoading(true);
+  setShowMessage(true);
 
-    try {
-      await fetch("/api/gift-notify", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          clickedAt: new Date().toLocaleString("ar-SA"),
-        }),
-      });
-    } catch (error) {
-      console.log("ما تم إرسال الإشعار:", error);
-    }
-
-    setLoading(false);
+  try {
+    await fetch("/api/notify", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        clickedAt: new Date().toLocaleString("ar-SA"),
+      }),
+    });
+  } catch (error) {
+    console.log("تعذر إرسال الإشعار:", error);
   }
+
+  setLoading(false);
+}
 
   return (
     <main className="page">
