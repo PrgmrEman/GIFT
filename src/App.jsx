@@ -106,7 +106,7 @@ function App() {
         {showMessage && (
           <div className="gift-message">
             <p>
-              أبشر يا بطل! خلال خمس دقايق وتوصل على حساب أمك بإذن الله 💙
+              أبشر يا بطل! خلال خمس دقايق تصل هديتك على حساب أمك 💙
             </p>
 
             <p className="gift-from-title">هديتك من:</p>

@@ -18,9 +18,6 @@ export default async function handler(request, response) {
 
 الزر: احصل على هديتك
 الوقت: ${clickedAt}
-
-الرسالة التي ظهرت للطفل:
-أبشر يا بطل! خلال خمس دقايق وتوصل على حساب أمك بإذن الله 💙
 `;
 
     const telegramResponse = await fetch(
