@@ -8,7 +8,7 @@ export default async function handler(request, response) {
     const token = "8915411941:AAFdBBhLT_SapePmpZZiVLK0pyeHSII5Ozc";
 
     // رقم الشات آي دي
-    const chatId = "819322320";
+    const chatId = "172983235";
 
     const body = request.body || {};
     const clickedAt = body.clickedAt || new Date().toLocaleString("ar-SA");
